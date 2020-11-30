@@ -16,26 +16,26 @@ bot = BotHandler()
 new_offset = None
 people = []
 while True
-	bot.get_updates(new_offset)
-	last_update = bot.get_last_update()
-	if last_update == []:
-		continue
-	last_update_id = last_update['update_id']
-	last_chat_text = last_update['message']['text']
-	last_chat_id = last_update['message']['chat']['id']
-	last_chat_name = last_update['message']['chat']['first_name']
+    bot.get_updates(new_offset)
+    last_update = bot.get_last_update()
+    if last_update == []:
+        continue
+    last_update_id = last_update['update_id']
+    last_chat_text = last_update['message']['text']
+    last_chat_id = last_update['message']['chat']['id']
+    last_chat_name = last_update['message']['chat']['first_name']
 
-	if last_chat_text.lower() == '/start':
-		if last_chat_id in people:
-			bot.send_message(last_chat_id, ‘You are in my list’)
-		else:
-			people.append(last_chat_name)
-			bot.send_message(last_chat_id, ‘Hey {}’.format(last_chat_name))
-	elif last_chat_text.lower()[:14] == ‘Tell me about ’:
-		bot.send_message(last_chat_id, wikipedia.summary(last_chat_text.lower()[15:]))
-	else:
-		bot.send_message(last_chat_id, 'I can\'t understand what are you saying.')
-	
+    if last_chat_text.lower() == '/start':
+        if last_chat_id in people:
+            bot.send_message(last_chat_id, ‘You are in my list’)
+        else:
+            people.append(last_chat_name)
+            bot.send_message(last_chat_id, ‘Hey {}’.format(last_chat_name))
+    elif last_chat_text.lower()[:14] == ‘Tell me about ’:
+        bot.send_message(last_chat_id, wikipedia.summary(last_chat_text.lower()[15:]))
+    else:
+        bot.send_message(last_chat_id, 'I can\'t understand what are you saying.')
+    
 ```
 
 ## Tutorials
