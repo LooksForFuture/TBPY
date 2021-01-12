@@ -12,7 +12,7 @@ You can easily download this library from github and use it.
 ```python
 from tbpy import BotHandler
 
-bot = BotHandler()
+bot = BotHandler(Your-Token)
 new_offset = None
 people = []
 while True
