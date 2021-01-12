@@ -31,7 +31,7 @@ while True
         else:
             people.append(last_chat_name)
             bot.send_message(last_chat_id, ‘Hey {}’.format(last_chat_name))
-    elif last_chat_text.lower()[:14] == ‘Tell me about ’:
+    elif len(last_chat_text) >= 15 and last_chat_text.lower()[:14] == ‘Tell me about ’:
         bot.send_message(last_chat_id, wikipedia.summary(last_chat_text.lower()[15:]))
     else:
         bot.send_message(last_chat_id, 'I can\'t understand what are you saying.')
